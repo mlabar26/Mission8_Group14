@@ -11,10 +11,12 @@ namespace Mission8_Group14.Controllers
 {
     public class HomeController : Controller
     {
-
-        public HomeController()
+        
+        private TaskFormContext _taskFormContext { get; set; }
+        public HomeController(TaskFormContext someName)
         {
             
+            _taskFormContext = someName;
         }
 
         public IActionResult Index()
@@ -22,9 +24,30 @@ namespace Mission8_Group14.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddTask()
         {
+            ViewBag.Categories = _taskFormContext.Categories.ToList();
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTask(TaskForm tf)
+        {
+            if(ModelState.IsValid)
+            {
+            _taskFormContext.Add(tf);
+            _taskFormContext.SaveChanges();
+            
+            return View("Quadrants", tf);
+            }
+
+            else
+            {
+                ViewBag.Categories = _taskFormContext.Categories.ToList();
+                return View();
+            }
+
         }
 
         public IActionResult Quadrants()

@@ -41,7 +41,7 @@ namespace Mission8_Group14.Models
                 new TaskForm
                 {
                     TaskId = 2,
-                    Task = "Finish Homewokr",
+                    Task = "Finish Homework",
                     DueDate = DateTime.Parse("2022-02-27 00:00:00"),
                     Quadrant = 1,
                     CategoryId = 2,
