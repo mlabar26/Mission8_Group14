@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        &nbsp;
+        <a asp-controller="Home" asp-action="AddTask">Add Tasks</a>
+        &nbsp;
+        <a asp-controller="Home" asp-action="Quadrants">View Quadrant</a>
+    </nav>
+
     <div>
         @RenderBody()
     </div>

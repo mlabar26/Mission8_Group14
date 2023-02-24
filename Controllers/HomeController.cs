@@ -21,5 +21,15 @@ namespace Mission8_Group14.Controllers
         {
             return View();
         }
+
+        public IActionResult AddTask()
+        {
+            return View();
+        }
+
+        public IActionResult Quadrants()
+        {
+            return View();
+        }
     }
 }

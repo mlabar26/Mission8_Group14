@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@*Task Page for users to enter more more tasks to the database*@
+
 @{
+    ViewData["Title"] = "Add Tasks";
 }
+
+
+<h1>Add a Task</h1>
+<br />
+
+@*Form that gathers input to then go to database*@
+<form method="post">
+
+    <label @*asp-for=""*@>Task:</label>
+    <input @*id=""*@ type="text" @*asp-for=""*@ />
+    <br />
+
+    <label @*asp-for=""*@>Due Date:</label>
+    <input @*id=""*@ type="date" @*asp-for=""*@ />
+    <br />
+
+    <label @*asp-for=""*@>Quadrant:</label>
+    <select @*asp-for=""*@>
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <br />
+
+    <label @*asp-for=""*@>Category:</label>
+    <select @*asp-for=""*@>
+        <option value=""></option>
+        <option value="Home">Home</option>
+        <option value="School">School</option>
+        <option value="Work">Work</option>
+        <option value="Church">Church</option>
+    </select>
+    <br />
+
+    <label @*asp-for=""*@>Completed:</label>
+    <select @*asp-for=""*@>
+        <option value="False">False</option>
+        <option value="True">True</option>
+    </select>
+    <br />
+
+    <input @*id=""*@ type="submit" value="Submit Task" />
+
+    <!--Helps display errors to user-->
+    <div asp-validation-summary="All"></div>
+
+</form>
