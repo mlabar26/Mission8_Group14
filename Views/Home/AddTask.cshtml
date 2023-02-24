@@ -4,6 +4,22 @@
     ViewData["Title"] = "Add Tasks";
 }
 
+@model TaskForm
+<!-- This is Carter! I just added the line above this and the 'asp-for' for the first label of Task
+    Just wanted to see if I set up models right and if it connects
+
+    Also, for displaying the categories, feel free to use this code from mission 07 
+    it lets us display the category name from the models but we store the category id in the database -->
+
+    @*<label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Mission8_Group14.Models.Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select><br />*@
+
 
 <h1>Add a Task</h1>
 <br />
@@ -11,8 +27,8 @@
 @*Form that gathers input to then go to database*@
 <form method="post">
 
-    <label @*asp-for=""*@>Task:</label>
-    <input @*id=""*@ type="text" @*asp-for=""*@ />
+    <label asp-for="Task">Task:</label>
+    <input id="" type="text" asp-for="Task" />
     <br />
 
     <label @*asp-for=""*@>Due Date:</label>
@@ -49,6 +65,6 @@
     <input @*id=""*@ type="submit" value="Submit Task" />
 
     <!--Helps display errors to user-->
-    <div asp-validation-summary="All"></div>
+<div asp-validation-summary="All"></div>
 
 </form>
