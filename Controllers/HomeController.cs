@@ -68,7 +68,7 @@ namespace Mission8_Group14.Controllers
 
             var application = _taskFormContext.Responses.Single(x => x.TaskId == taskid);
 
-            return View("Quadrants", application);
+            return View("AddTask", application);
         }
         [HttpPost]
         public IActionResult Edit(TaskForm blah)

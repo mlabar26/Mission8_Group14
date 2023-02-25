@@ -31,13 +31,13 @@
     <br />
 
     <label asp-for="CategoryId">Category:</label>
-        <select asp-for="CategoryId">
-            <option value="">Select a Category</option>
-            @foreach (Mission8_Group14.Models.Category c in ViewBag.Categories)
-            {
-                <option value="@c.CategoryId">@c.CategoryName</option>
-            }
-        </select>
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Mission8_Group14.Models.Category c in ViewBag.Categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
     <br />
 
     <label asp-for="Completed">Completed:</label>
@@ -47,7 +47,9 @@
     </select>
     <br />
 
-    <input id="submitTask" type="submit" value="Submit Task" />
+    <button type="submit">Submit Task</button>
+
+    @*<input id="submitTask" type="submit" value="Submit Task" />*@
 
     <!--Helps display errors to user-->
     <div asp-validation-summary="All"></div>
