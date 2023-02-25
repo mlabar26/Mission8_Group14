@@ -39,8 +39,10 @@ namespace Mission8_Group14.Controllers
             {
             _taskFormContext.Add(tf);
             _taskFormContext.SaveChanges();
-            
-            return View("Quadrants", tf);
+
+                //return View("Quadrants");
+                //return View("Index");
+                return RedirectToAction("Quadrants", tf);
             }
 
             else
