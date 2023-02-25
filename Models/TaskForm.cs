@@ -15,6 +15,7 @@ namespace Mission8_Group14.Models
         [Required(ErrorMessage = "Must Enter the Task Name.")]
         public string Task { get; set; }
 
+
         public DateTime? DueDate { get; set; }
 
         [Required(ErrorMessage = "Need to Enter the Quadrant.")]

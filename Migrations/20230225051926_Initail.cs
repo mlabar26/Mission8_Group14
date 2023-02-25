@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mission8_Group14.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initail : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,10 +27,10 @@ namespace Mission8_Group14.Migrations
                     TaskId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Task = table.Column<string>(nullable: false),
-                    DueDate = table.Column<DateTime>(nullable: false),
+                    DueDate = table.Column<DateTime>(nullable: true),
                     Quadrant = table.Column<int>(nullable: false),
                     Completed = table.Column<bool>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,7 +40,7 @@ namespace Mission8_Group14.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -71,7 +71,7 @@ namespace Mission8_Group14.Migrations
             migrationBuilder.InsertData(
                 table: "Responses",
                 columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
-                values: new object[] { 2, 2, true, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Finish Homewokr" });
+                values: new object[] { 2, 2, true, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Finish Homework" });
 
             migrationBuilder.InsertData(
                 table: "Responses",

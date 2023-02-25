@@ -9,8 +9,8 @@ using Mission8_Group14.Models;
 namespace Mission8_Group14.Migrations
 {
     [DbContext(typeof(TaskFormContext))]
-    [Migration("20230224073110_Initial")]
-    partial class Initial
+    [Migration("20230225051926_Initail")]
+    partial class Initail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,13 +60,13 @@ namespace Mission8_Group14.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("Completed")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime?>("DueDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Quadrant")
@@ -99,7 +99,7 @@ namespace Mission8_Group14.Migrations
                             Completed = true,
                             DueDate = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Quadrant = 1,
-                            Task = "Finish Homewokr"
+                            Task = "Finish Homework"
                         },
                         new
                         {
@@ -116,9 +116,7 @@ namespace Mission8_Group14.Migrations
                 {
                     b.HasOne("Mission8_Group14.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
                 });
 #pragma warning restore 612, 618
         }
