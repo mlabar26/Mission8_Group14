@@ -37,11 +37,9 @@ namespace Mission8_Group14.Controllers
         {
             if(ModelState.IsValid)
             {
-            _taskFormContext.Add(tf);
-            _taskFormContext.SaveChanges();
+                _taskFormContext.Add(tf);
+                _taskFormContext.SaveChanges();
 
-                //return View("Quadrants");
-                //return View("Index");
                 return RedirectToAction("Quadrants", tf);
             }
 

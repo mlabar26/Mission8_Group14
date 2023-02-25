@@ -15,7 +15,7 @@ namespace Mission8_Group14.Models
         [Required(ErrorMessage = "Must Enter the Task Name.")]
         public string Task { get; set; }
 
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
 
         [Required(ErrorMessage = "Need to Enter the Quadrant.")]
         public int Quadrant { get; set; }
@@ -24,7 +24,7 @@ namespace Mission8_Group14.Models
 
 
         // foreign key relationship
-        public int CategoryId { get; set; } // foreign key
+        public int? CategoryId { get; set; } // foreign key
         public Category Category { get; set; } // instance of object
 
     }
