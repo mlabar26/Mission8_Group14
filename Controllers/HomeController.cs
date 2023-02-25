@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission8_Group14.Models;
 using System;
@@ -52,7 +53,12 @@ namespace Mission8_Group14.Controllers
 
         public IActionResult Quadrants()
         {
-            return View();
+            var tasks = _taskFormContext.Responses
+                .Where(x => x.Completed == false)
+                .Include(x => x.Category)
+                .OrderBy(x => x.Category)
+                .ToList();
+            return View(tasks);
         }
     }
 }
