@@ -60,5 +60,40 @@ namespace Mission8_Group14.Controllers
                 .ToList();
             return View(tasks);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Categories = _taskFormContext.Categories.ToList();
+
+            var application = _taskFormContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View("Quadrants", application);
+        }
+        [HttpPost]
+        public IActionResult Edit(TaskForm blah)
+        {
+            _taskFormContext.Update(blah);
+            _taskFormContext.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
+        [HttpGet]
+        public IActionResult Delete(int taskid)
+        {
+            var application = _taskFormContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View(application);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskForm tf)
+        {
+            _taskFormContext.Responses.Remove(tf);
+            _taskFormContext.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
+
     }
 }
